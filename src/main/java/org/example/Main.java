@@ -13,6 +13,7 @@ public class Main {
             System.out.println("\nMenu:");
             System.out.println("1. Insertar datos");
             System.out.println("2. Leer datos");
+            System.out.println("2. Buscar porID");
             System.out.println("3. Modificar datos");
             System.out.println("4. Eliminar datos");
             System.out.println("5. Salir");
