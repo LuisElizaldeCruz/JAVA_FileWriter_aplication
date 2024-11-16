@@ -1,7 +1,9 @@
 package org.example.data;
 
+import java.util.List;
+
 public interface CrudOperations {
-    public void leerDatos();
+    public List<Student> leerDatos(String filePath, String name);
 
     public void buscarPorId();
 

@@ -1,8 +1,10 @@
 package org.example;
 
+import org.example.data.OperacionDatos;
 import org.example.data.Student;
-import org.example.data.generatedFile;
+import org.example.data.GeneratedFile;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -26,7 +28,21 @@ public class Main {
                     break;
                 case 2:
                     // leerDatos();
-                    break;
+
+                    OperacionDatos operacion = new OperacionDatos();
+                    GeneratedFile generatedFile = new GeneratedFile();
+                    String fileName = "data.txt";
+                    String filePath = generatedFile.path.getPath()+"\\";
+                   // System.out.println(generatedFile.path.getPath());
+                    List<Student> estudiantes= operacion.leerDatos(filePath, fileName);
+
+                    System.out.printf("%-12s %-15s %-20s %-20s %-12s %-20s %-6s%n%n",
+                            "Matricula", "Nombre", "ApellidoP", "ApellidoM", "Genero", "Licenciatura","Matricula");
+                    for(Student st : estudiantes){
+                        System.out.printf("%-12s %-15s %-20s %-20s %-12s %-20s %-6s%n",
+                                st.getMatricula(),st.getNombre(),st.getPrimerApellido(),
+                                st.getSegApellido(),st.getGenre(),st.getKeyBachellor(),st.getMatricula());
+                    }
                 case 3:
                     // modificarDatos();
                     break;
@@ -46,7 +62,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         String genre = null;
-        generatedFile gf = new generatedFile();
+        GeneratedFile gf = new GeneratedFile();
 
         System.out.print("Introduce tu matrícula: ");
         String matricula = scanner.nextLine();
